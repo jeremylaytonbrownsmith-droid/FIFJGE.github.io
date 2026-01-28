@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First In Fitness 2026 - Jeffreys Grove</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #1a3a5c 0%, #2d5a87 50%, #4a7c59 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header-image {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .student-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+
+        .student-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 8vw, 3rem);
+            color: #ffc72c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .events-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+        }
+
+        .event-badge {
+            background: linear-gradient(135deg, #ffc72c, #ffaa00);
+            color: #1a3a5c;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255,199,44,0.3);
+            display: inline-block;
+        }
+
+        .info-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 30px;
+            color: #1a3a5c;
+            margin-bottom: 30px;
+        }
+
+        .info-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            color: #1a3a5c;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .info-section p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .location-box {
+            background: #f0f7ff;
+            border-left: 4px solid #2d5a87;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .location-box strong {
+            color: #1a3a5c;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #2d5a87, #1a3a5c);
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45,90,135,0.3);
+            text-align: center;
+        }
+
+        .link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(45,90,135,0.4);
+            background: linear-gradient(135deg, #3d6a97, #2a4a6c);
+        }
+
+        .link-button.primary {
+            background: linear-gradient(135deg, #ffc72c, #ffaa00);
+            color: #1a3a5c;
+            grid-column: 1 / -1;
+            font-size: 1.1rem;
+            padding: 20px 25px;
+        }
+
+        .link-button.primary:hover {
+            background: linear-gradient(135deg, #ffda5c, #ffbb22);
+        }
+
+        .icon {
+            font-size: 1.3rem;
+        }
+
+        .contact-info {
+            background: #e8f4ea;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: #2d5a87;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .error-card {
+            background: rgba(255,100,100,0.2);
+            border: 1px solid rgba(255,100,100,0.4);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .error-card h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .error-card a {
+            color: #ffc72c;
+        }
+
+        .preview-note {
+            margin-top: 20px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Image -->
+        <img src="https://static.wixstatic.com/media/b61df5_1d85f1be08624e789d44189c1c7ad55d~mv2.png" alt="Congratulations, You Made First In Fitness!" class="header-image">
+        
+        <!-- Student Card -->
+        <div id="student-card" class="student-card">
+            <!-- Content populated by JS -->
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <h2>📍 Event Details</h2>
+            <p>Your student has qualified for the <strong>First In Fitness</strong> competition! This is a wonderful achievement and we're excited to have them represent Jeffreys Grove Elementary.</p>
+            
+            <div class="location-box">
+                <strong>📅 Date:</strong> March 11th, 2026 (Rain Date: March 17th)<br>
+                <strong>📍 Location:</strong> Southeast Raleigh High School
+            </div>
+
+            <h2>📋 Required Documents</h2>
+            <p>Please complete the following to confirm your student's participation:</p>
+
+            <div class="links-grid">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSff9sRAoKcsA3La7tgre-v4tMGOMQ9YDcUr8URTBR0hEWvh4w/viewform?usp=sharing" class="link-button primary" target="_blank">
+                    <span class="icon">📝</span> Sign Up & Submit Documents
+                </a>
+                <a href="https://sites.google.com/wcpss.net/jeffreysgrovepe/fif" class="link-button" target="_blank">
+                    <span class="icon">📢</span> FIF Info & Updates
+                </a>
+                <a href="https://drive.google.com/file/d/1-R9DaoevcyVmnYZYux1_aqKmefbI9Ghn/view" class="link-button" target="_blank">
+                    <span class="icon">📄</span> Field Trip Form
+                </a>
+                <a href="https://wcpss.schoolcashonline.com" class="link-button" target="_blank">
+                    <span class="icon">💳</span> Payment
+                </a>
+                <a href="https://www.signupgenius.com/go/10C084DAEA828A6FE3-61929342-first#/" class="link-button" target="_blank">
+                    <span class="icon">🙋</span> Volunteer
+                </a>
+                <a href="https://docs.google.com/document/d/1nDB9BoNatrti_kbOqy07T1PpCBikNYHACMdpuaIwlRY/edit?tab=t.0" class="link-button" target="_blank">
+                    <span class="icon">✉️</span> Letter Home
+                </a>
+            </div>
+
+            <div class="contact-info">
+                <p><strong>Questions?</strong> Email the field trip form or contact:<br>
+                <a href="mailto:jsmith25@wcpss.net">jsmith25@wcpss.net</a></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Jeffreys Grove Elementary | First In Fitness 2026</p>
+        </div>
+    </div>
+
+    <script>
+        // STUDENT DATABASE - Update this with final roster after retesting
+        const students = {
+            // 5TH GRADE
+            'otis-quinones': { name: 'Otis Quinones', event: 'Long Jump' },
+            'walker-flynn': { name: 'Walker Flynn', event: 'Mile' },
+            'aiden-wilson': { name: 'Aiden Wilson', event: 'Shuttle Run' },
+            'warren-tyson': { name: 'Warren Tyson', event: '100 Yard Dash' },
+            'fernando-bracho': { name: 'Fernando Bracho', event: '100 Yard Dash' },
+            'chris-garcia': { name: 'Chris Garcia', event: 'Pull Ups' },
+            'waylon-frisch': { name: 'Waylon Frisch', event: 'Speed Rope' },
+            'clara-ellis': { name: 'Clara Ellis', event: 'Mile' },
+            'ava-anah': { name: 'Ava Anah', event: '100 Yard Dash' },
+            'maddie-tatka': { name: 'Maddie Tatka', event: 'Pull Ups' },
+            'asly-pacheco': { name: 'Asly Pacheco', event: 'Speed Rope' },
+            'jyonna-rogers': { name: "Jy'onna Rogers", event: 'Long Jump' },
+            'sabrina-white': { name: 'Sabrina White', event: 'Long Jump' },
+            
+            // 4TH GRADE
+            'jose-velazquez': { name: 'Jose Antonio Velazquez', event: 'Mile' },
+            'rowan-johnson': { name: 'Rowan Johnson', event: 'Pull Ups' },
+            'ryder-wingate': { name: 'Ryder Wingate', event: '100 Yard Dash' },
+            'edward-schenk': { name: 'Edward Schenk', event: 'Shuttle Run' },
+            'barrett-brown': { name: 'Barrett Brown', event: 'Speed Rope' },
+            'miles-lee': { name: 'Miles Lee', event: 'Long Jump' },
+            'leo-liu': { name: 'Leo Liu', event: 'Long Jump' },
+            'samantha-brown': { name: 'Samantha Brown', event: 'Mile' },
+            'sloane-fishel': { name: 'Sloane Fishel', event: '100 Yard Dash' },
+            'ayla-lyteson': { name: 'Ayla Lyteson', event: 'Pull Ups' },
+            'lennox-hawkins': { name: 'Lennox Hawkins', event: 'Shuttle Run' },
+            'ellarae-cooper': { name: 'EllaRae Cooper', event: 'Long Jump' },
+            'victoria-ysabel': { name: 'Victoria Ysabel', event: 'Long Jump' },
+            
+            // 3RD GRADE
+            'noah-wilson': { name: 'Noah Wilson', event: 'Mile' },
+            'caleb-robinson': { name: 'Caleb Robinson', event: '100 Yard Dash' },
+            'beckett-boone': { name: 'Beckett Boone', event: 'Pull Ups' },
+            'luke-oconnell': { name: "Luke O'Connell", event: 'Speed Rope' },
+            'sunny-bennett': { name: 'Sunny Bennett', event: 'Mile' },
+            'madelyn-shea': { name: 'Madelyn Shea', event: '100 Yard Dash' },
+            'madilynn-stephens': { name: 'Madilynn Stephens', event: 'Shuttle Run' },
+            'lillian-sauls': { name: 'Lillian Sauls', event: 'Pull Ups' },
+            'sloan-howarth': { name: 'Sloan Howarth', event: 'Speed Rope' },
+            'ameena-williams': { name: 'Ameena Williams', event: 'Long Jump' },
+            'nathan-edge': { name: 'Nathan Edge', event: 'Long Jump' },
+            
+            // 2ND GRADE
+            'levi-parker': { name: 'Levi Parker', event: 'Mile' },
+            'aidan-widman': { name: 'Aidan Widman', event: 'Mile' },
+            'cooper-flammia': { name: 'Cooper Flammia', event: '100 Yard Dash' },
+            'fiona-egalite': { name: 'Fiona Egalite', event: 'Mile' },
+            'rae-rappold': { name: 'Rae Rappold', event: '100 Yard Dash' },
+        };
+
+        // Get student code from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const studentCode = urlParams.get('student');
+
+        // Populate student card
+        const studentCard = document.getElementById('student-card');
+
+        if (studentCode && students[studentCode]) {
+            const student = students[studentCode];
+            studentCard.innerHTML = `
+                <div class="student-name">${student.name}</div>
+                <div class="events-label">Qualified Event</div>
+                <span class="event-badge">${student.event}</span>
+            `;
+        } else if (studentCode) {
+            studentCard.innerHTML = `
+                <div class="error-card">
+                    <h2>Student Not Found</h2>
+                    <p>We couldn't find a student with that code. Please check your link and try again, or contact <a href="mailto:jsmith25@wcpss.net">jsmith25@wcpss.net</a></p>
+                </div>
+            `;
+        } else {
+            studentCard.innerHTML = `
+                <div class="student-name">Your Student's Name</div>
+                <div class="events-label">Qualified Event</div>
+                <span class="event-badge">Event</span>
+                <p class="preview-note">(This is a preview. Each student will see their personalized information.)</p>
+            `;
+        }
+    </script>
+</body>
+</html>
